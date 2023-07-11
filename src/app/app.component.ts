@@ -14,13 +14,14 @@ export class AppComponent {
 
   }
 
-  buscarNoticias(parametros:any){
+  buscarNoticias(){
     this.loading = true;
     this.listNoticias = [];
     setTimeout(() => {
-      this._noticiaService.getNoticias(parametros).subscribe(data => {
+    
+      this._noticiaService.getNoticias().subscribe(data => {
         this.loading = false;
-        this.listNoticias = data.articles;
+        this.listNoticias = data.items;
       }, error => {
         console.log(error);
         this.loading = false;
